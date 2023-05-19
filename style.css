@@ -1,0 +1,220 @@
+:root {
+    --lm-bg: #f6f8ff;
+    --lm-bg-content: #fefefe;
+    --lm-text: #4b6a9b;
+    --lm-text-alt: #2b3442;
+    --lm-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+    --lm-shadow-inactive: 0px 16px 30px -10px rgba(0, 0, 0, 0.2);
+    --lm-icon-bg: brightness(100%);
+    /* Btn */
+    --btn: #0079ff;
+    --btn-hover: #60abff;
+    --lm-bg-dark: #141D2F;
+    --lm-bg-content-dark: #1E2A47;
+    --lm-bg-text: white;
+    --lm-bg-shadow: 0px 16px 30px -10px rgba(70,88,109,0.15);
+  }
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Space Mono", monospace;
+}
+body {
+    font-size: 16px;
+    max-width: 1920px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lm-bg);
+    color: var(--lm-text);
+}
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.heading h1 {
+    justify-self: flex-start;
+    align-self: flex-start;
+}
+.mode {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+.mode p {
+    align-self: flex-end;
+    font-family: "Space Mono", monospace;
+}
+.search {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0.3rem;
+    border-radius: 12px;
+    background-color: var(--lm-bg-content);
+    box-shadow: var(--lm-shadow-inactive);
+}
+.search-input {
+    width: 100%;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+}
+.search-input input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    font-family: "Space Mono", monospace;
+    color: var(--lm-text);
+    padding: 0.3rem;
+}
+.search-input input::placeholder {
+    font-family: "Space Mono", monospace;
+    color: var(--lm-text);
+}
+.search-input input:focus {
+    outline: none;  
+}
+.search button {
+    padding: 0.9rem;
+    border-radius: 12px;
+    background-color: var(--btn);
+    border: none;
+    font-family: inherit;
+    color: var(--lm-bg-content);
+}
+.search button:hover {
+    background-color: var(--btn-hover);
+    cursor: pointer;
+}
+.card {
+    display: none;
+    grid-template-columns: 1fr 5fr;
+    width: 100%;
+    border-radius: 12px;
+    padding: 2rem;
+    background-color: var(--lm-bg-content);
+    box-shadow: var(--lm-shadow);
+    max-width: 50rem;
+    height: 50vh;
+    align-items: center;
+}
+.name-data {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+.image {
+    align-self: normal;
+}
+.image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.stats {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 0.7rem 1.7rem;
+    border-radius: 12px;
+    background-color: var(--lm-bg);
+    box-shadow: var(--lm-shadow);
+}
+.bio {
+    margin: 1rem 1rem 1rem 0;
+}
+.other-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1rem;
+    margin: 2rem 2rem 2rem 0;
+}
+.other-info div {
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+}
+.icon {
+    background-color: var(--lm-icon-bg);
+}
+.light {
+    display: none;
+}
+/* Dark Mode classes */
+.dark-body {
+    background-color: var(--lm-bg-dark);
+    color: var(--lm-bg-text);
+    box-shadow: var(--lm-shadow);
+}
+.dark-content {
+    background-color: var(--lm-bg-content-dark);
+    color: var(--lm-bg-text);
+}
+@media (max-width: 485px) {
+    body {
+        max-width: 485px;
+        height: auto;
+    }
+    .container {
+        max-width: fit-content;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        padding: 1rem;
+    }
+    .card {
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .image {
+        display: grid;
+        justify-content: center;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: baseline;
+        align-items: center;
+    }
+    .name-data {
+        flex-direction: column;
+        gap: 0;
+    }
+    .bio {
+        margin: 1rem 0;
+    }
+    .stats {
+        max-width: 15rem;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-row: 2;
+        place-content: center;
+    }
+    .other-info {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        margin: 0;
+    }
+}
